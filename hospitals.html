@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Hospitals in Belagavi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:300,500,600&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Poppins', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <section class="p-8 max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold text-center text-blue-700 mb-10">Best Hospitals in Belagavi</h1>
+    <div id="hospitalList" class="space-y-8"></div>
+  </section> 
+
+  <script>
+    const hospitals = [ 
+      {
+        name: "KLES Dr. Prabhakar Kore Hospital & MRC",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd0JxeqsllS-Wuf6hOXM-EDj4QeCdUMEhoUw&s",
+        location: "Nehru Nagar, Belagavi",
+        phone: "+91 831 247 3777",
+        mapLink: "https://www.google.com/maps?q=KLES+Dr+Prabhakar+Kore+Hospital+Belagavi",
+        services: ["Cardiology", "Neurology", "Oncology", "Transplant"]
+      }, 
+
+      {
+        name: "KLE Centenary Charitable Hospital",
+        image: "https://i0.wp.com/allaboutbelgaum.com/content/uploads/2015/02/KLE-Centenary-CharitableHospital.jpg",
+        location: "Yellur Road, Belagavi",
+        phone: "+91 831 247 3777",
+        mapLink: "https://www.google.com/maps?q=KLE+Centenary+Charitable+Hospital+Belagavi",
+        services: ["Emergency", "Pediatrics", "Nephrology", "Psychiatry"]
+      },
+
+      {
+        name: "Lakeview Hospital",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuOs0CpXYg56Jf6GgOuW1CAF03EHbWprLMfA&s",
+        location: "Opp. Fort Lake, Gandhi Nagar",
+        phone: "+91 831 245 4772",
+        mapLink: "https://www.google.com/maps?q=Lakeview+Hospital+Belagavi",
+        services: ["OPD", "Lab", "CT/MRI", "Ambulance"]
+      },
+
+      {
+        name: "District Civil Hospital",
+        image: "https://www.belgaummirror.com/wp-content/uploads/2020/11/belgaum-civil-hospital-belgaum-district-civil-hospital-belgav.jpg.jpeg",
+        location: "Ayodhya Nagar, Sadashiv Nagar",
+        phone: "+91 831 247 2770",
+        mapLink: "https://www.google.com/maps?q=District+Civil+Hospital+Belagavi",
+        services: ["General Medicine", "Surgeries", "Maternity"]
+      },
+      
+      {
+        name: "Belgaum Cancer Hospital Pvt Ltd",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ33UCC42C4u5rw-XyqARAMfgkPphGbl2DDMA&s",
+        location: "Ashoknagar, Belagavi",
+        phone: "+91 831 247 2770",
+        mapLink: "https://www.google.com/maps?q=Belgaum+Cancer+Hospital+Belagavi",
+        services: ["Oncology", "Radiotherapy", "Chemotherapy"]
+      },
+      {
+        name: "Deccan Medical Centre",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdEogKjx22DFgrP151NqcrVy8On9jFFqaxOw&s",
+        location: "Goodshed Road, Belagavi",
+        phone: "+91 831 243 6444",
+        mapLink: "https://www.google.com/maps?q=Deccan+Medical+Centre+Belagavi",
+        services: ["General Surgery", "Orthopedics", "ENT"]
+      }
+    ];
+
+    const container = document.getElementById("hospitalList");
+    hospitals.forEach(h => {
+      const card = document.createElement("div");
+      card.className = "flex flex-col md:flex-row bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6";
+
+      const badges = h.services.map(s =>
+        `<span class="text-sm bg-green-100 text-green-700 px-2 py-1 rounded mr-2 mb-1">${s}</span>`
+      ).join("");
+
+      card.innerHTML = `
+        <div class="md:w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+          <img src="${h.image}" alt="${h.name}" class="w-full h-32 object-cover rounded-lg border">
+        </div>
+        <div class="flex-1">
+          <h2 class="text-xl font-semibold mb-1">${h.name}</h2>
+          <p class="text-gray-600 mb-2"><strong>📍 Location:</strong> ${h.location}</p>
+          <p class="text-gray-600 mb-2"><strong>📞 Contact:</strong> ${h.phone}</p>
+          <div class="mb-4">${badges}</div>
+          <div class="flex space-x-3">
+            <a href="${h.mapLink}" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm">
+              View on Map
+            </a>
+            <a href="tel:${h.phone.replace(/\D/g, '')}" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm">
+              Call Now</a>
+          <a href="hospitalappointmen.html?hospital=${encodeURIComponent(h.name)}" 
+   class="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white text-sm">
+   Book Appointment
+</a>
+
+
+          
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Doctors - Debug thugs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif; 
+    } 
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <section class="p-8 max-w-5xl mx-auto">
+    <h1 class="text-4xl font-bold text-center text-blue-700 mb-10">Meet Our Experts</h1>
+    <div id="doctorList" class="space-y-6"></div>
+  </section> 
+
+  <script> 
+    const doctors = [
+      {
+        name: "Dr. Mohan Keshavamurthy",
+        designation: "PRINCIPAL DIRECTOR UROLOGY",
+        experience: "26 Years",
+        fees: "₹1800",
+        image: "https://www.shutterstock.com/image-photo/portrait-handsome-male-doctor-stethoscope-260nw-2480850611.jpg",
+        tags: ["Urology", "Paediatric Urology", "Robotic Surgery", "Organ Transplant"]
+      },
+      {
+        name: "Dr. Narayan Hulse",
+        designation: "PRINCIPAL DIRECTOR ORTHOPAEDICS",
+        experience: "21 Years",
+        fees: "₹1100",
+        image: "https://t4.ftcdn.net/jpg/02/69/98/99/360_F_269989951_9Gf7PWaRtrpm2EochO3D5WVn22sFZbNZ.jpg",
+        tags: ["Orthopaedics", "Joint Replacement", "Computer Navigated Surgery"]
+      },
+      {
+        name: "Dr. Niti Raizada",
+        designation: "PRINCIPAL DIRECTOR MEDICAL ONCOLOGY ",
+        experience: "22 Years",
+        fees: "₹1800",
+        image: "https://www.mgmch.org/uploads/doctors/89docts_dr._sudha_sarna.webp",
+        tags: ["Oncology", "Hemato-Oncology", "BMT"]
+      },
+      {
+        name: "Dr.Sudhir Kumar",
+        designation: "PRINCIPAL DIRECTOR NEUROLOGY ",
+        experience: "26 Years",
+        fees: "₹1800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaIPNhbRFmFlSQopMpthiadDcCsjXAStFfdQ&s",
+        tags: ["Neurology", "Stroke", "Movement Disorders", "Epilepsy"]
+      },
+      {
+        name: "Dr.shivakumar",
+        designation: "PRINCIPAL DIRECTOR GASTROENTEROLOGY",
+        experience: "26 Years",
+        fees: "₹1800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTld8YxbEKDo5JXAHtfEqM2x1N3b3AG1LvmpQ&s",
+        tags: ["Gastroenterology", "Hepatology", "Endoscopy", "ERCP"]
+      },
+      {
+        name: "Dr.Sanjana Desai",
+        designation: "PRINCIPAL DIRECTOR CARDIOLOGY",
+        experience: "26 Years",
+        fees: "₹1800",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw65VrVu9aRsJQZcBnODAdncrBaM2MS_yJTw&s",
+        tags: ["Cardiology", "Interventional Cardiology", "Heart Failure", "Preventive Cardiology"]
+      },
+        {
+            name: "Dr. Anjali Verma",
+            designation: "PRINCIPAL DIRECTOR GYNAECOLOGY",
+            experience: "26 Years",
+            fees: "₹1800",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7rsoht1lq7SUvZnYoll3UH1-29NW6Lj1VA&s",
+            tags: ["Gynaecology", "Obstetrics", "High-Risk Pregnancy", "Infertility"]
+        },
+
+    ]; 
+
+    const container = document.getElementById("doctorList");
+
+    doctors.forEach(doc => { 
+      const card = document.createElement("div");
+      card.className = "flex flex-col sm:flex-row border border-gray-300 bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition";
+
+      const tagsHtml = doc.tags.map(tag =>
+        `<span class="text-sm bg-purple-100 text-purple-700 px-2 py-1 rounded mr-1 mb-1 inline-block">${tag}</span>`
+      ).join(''); 
+
+      card.innerHTML = `
+        <div class="sm:w-32 flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 flex justify-center">
+          <img src="${doc.image}" alt="${doc.name}" class="w-24 h-24 rounded-full border">
+        </div>
+        <div class="flex flex-col justify-between flex-1">
+          <div>
+            <h2 class="text-xl font-semibold mb-1">${doc.name}</h2>
+            <p class="text-gray-600 mb-2">${doc.designation}</p>
+            <div class="mb-3 flex flex-wrap">${tagsHtml}</div>
+            <div class="flex flex-wrap text-sm text-gray-600 space-x-4 mb-2">
+              <span>📅 ${doc.experience}</span>
+              <span>💰 ${doc.fees}</span>
+              <span>📍 ${doc.location}</span>
+            </div>
+          </div>
+          <div class="mt-3">
+            <a href="appointment.html?doctor=${encodeURIComponent(doc.name)}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm">Book Appointment</a>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>

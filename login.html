@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellNest - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">WellNest</div>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:underline">Home</a>
+                <a href="dr.html" class="hover:underline">Doctors</a>
+                <a href="hospitals.html" class="hover:underline">Hospitals</a>
+                <a href="appointment.html" class="hover:underline">Book Appointment</a>
+            </div>
+        </div>
+    </nav> 
+    <div class="container mx-auto px-4 py-8">
+        <!-- Login Section -->
+        <div id="loginSection" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h1 class="text-2xl font-bold text-center mb-4">Login to WellNest</h1>
+            <p class="text-center mb-6">Access your digital health card and medical records securely.</p>
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                    </div>
+                    <a href="#" class="text-sm text-blue-600 hover:underline" onclick="alert('Password reset link sent to your email!')">Forgot Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Login</button>
+            </form>
+            <p class="text-center mt-4">Don't have an account? <a href="#" class="text-blue-600 hover:underline" onclick="showSignUp()">Sign Up</a></p>
+        </div>
+        <div id="signupSection" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hidden">
+            <h1 class="text-2xl font-bold text-center mb-4">Sign Up for WellNest</h1>
+            <p class="text-center mb-6">Create your account to access your digital health card.</p>
+            <form id="signupForm" class="space-y-6">
+                <div>
+                    <label for="signupEmail" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="signupEmail" name="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label for="signupPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="signupPassword" name="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Sign Up</button>
+            </form>
+            <p class="text-center mt-4">Already have an account? <a href="#" class="text-blue-600 hover:underline" onclick="showLogin()">Login</a></p>
+        </div>
+        <div id="personalDetailsSection" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hidden">
+            <h1 class="text-2xl font-bold text-center mb-4">Complete Your Profile</h1>
+            <p class="text-center mb-6">Please provide your personal details to access your dashboard.</p>
+            <form id="personalDetailsForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label for="bloodGroup" class="block text-sm font-medium text-gray-700">Blood Group</label>
+                    <select id="bloodGroup" name="bloodGroup" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                        <option value="" disabled selected>Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                    <select id="gender" name="gender" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full border border-gray-300 rounded-md p-2" pattern="[0-9]{10}" placeholder="1234567890" required>
+                </div>
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                    <textarea id="address" name="address" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Submit Details</button>
+            </form>
+        </div>
+        <div id="dashboardSection" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hidden">
+            <h1 class="text-2xl font-bold text-center mb-4">Welcome to Your WellNest Dashboard</h1>
+            <p class="text-center mb-6">Access your digital health card and medical records here.</p>
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Your Profile</h2>
+                <p>Email: <span id="userEmail"></span></p>
+                <p>Name: <span id="userName"></span></p>
+                <p>Date of Birth: <span id="userDob"></span></p>
+                <p>Blood Group: <span id="userBloodGroup"></span></p>
+                <p>Gender: <span id="userGender"></span></p>
+                <p>Phone: <span id="userPhone"></span></p>
+                <p>Address: <span id="userAddress"></span></p>
+            </div>
+            <button onclick="logout()" class="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700">Logout</button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>© 2025 WellNest Digital Health. All rights reserved.</p>
+        <div class="space-x-4 mt-2">
+            <a href="#" class="hover:underline">Privacy Policy</a>
+            <a href="#" class="hover:underline">Terms of Service</a>
+            <a href="#" class="hover:underline">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+      
+        function showLogin() {
+            document.getElementById('loginSection').classList.remove('hidden');
+            document.getElementById('signupSection').classList.add('hidden');
+            document.getElementById('personalDetailsSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.add('hidden');
+        }
+
+        function showSignUp() {
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('signupSection').classList.remove('hidden');
+            document.getElementById('personalDetailsSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.add('hidden');
+        }
+
+        function showPersonalDetails() {
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('signupSection').classList.add('hidden');
+            document.getElementById('personalDetailsSection').classList.remove('hidden');
+            document.getElementById('dashboardSection').classList.add('hidden');
+        }
+
+        function showDashboard(user) {
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('signupSection').classList.add('hidden');
+            document.getElementById('personalDetailsSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.remove('hidden');
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userName').textContent = user.name || 'Not provided';
+            document.getElementById('userDob').textContent = user.dob || 'Not provided';
+            document.getElementById('userBloodGroup').textContent = user.bloodGroup || 'Not provided';
+            document.getElementById('userGender').textContent = user.gender || 'Not provided';
+            document.getElementById('userPhone').textContent = user.phone || 'Not provided';
+            document.getElementById('userAddress').textContent = user.address || 'Not provided';
+        }
+
+        function logout() {
+            localStorage.removeItem('lastLoggedIn');
+            showLogin();
+            alert('Logged out successfully!');
+        }
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const storedUser = localStorage.getItem('user_' + email);
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (user.password === password) {
+                    localStorage.setItem('lastLoggedIn', email);
+                    alert('Login successful! Welcome to WellNest, ' + email);
+                 
+                    if (user.name && user.dob && user.bloodGroup && user.gender && user.phone && user.address) {
+                        showDashboard(user);
+                    } else {
+                        showPersonalDetails();
+                    }
+                } else {
+                    alert('Incorrect password. Please try again.');
+                }
+            } else {
+                alert('No account found with this email. Please sign up.');
+            }
+        });
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            if (localStorage.getItem('user_' + email)) {
+                alert('An account with this email already exists. Please log in.');
+            } else {
+                localStorage.setItem('user_' + email, JSON.stringify({ email: email, password: password }));
+                alert('Sign-up successful! You can now log in.');
+                showLogin();
+            } 
+        });
+        document.getElementById('personalDetailsForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = localStorage.getItem('lastLoggedIn');
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const bloodGroup = document.getElementById('bloodGroup').value;
+            const gender = document.getElementById('gender').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const storedUser = JSON.parse(localStorage.getItem('user_' + email));
+            const updatedUser = {
+                ...storedUser,
+                name: name,
+                dob: dob,
+                bloodGroup: bloodGroup,
+                gender: gender,
+                phone: phone,
+                address: address
+            };
+            localStorage.setItem('user_' + email, JSON.stringify(updatedUser));
+            alert('Personal details saved successfully!');
+            showDashboard(updatedUser);
+        });
+        localStorage.setItem('user_test@example.com', JSON.stringify({
+            email: 'test@example.com',
+            password: 'password123'
+        }));
+    </script>
+</body>
+</html> 

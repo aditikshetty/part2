@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellNest Digital Health</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .max-bg-blue { background-color: #003087; }
+        .max-text-blue { color: #003087; }
+        .max-btn {
+            @apply bg-blue-800 text-white px-6 py-2 rounded-full hover:bg-blue-900 transition;
+        }
+        .max-card {
+            @apply bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition;
+        }
+        .max-hero-bg {
+            background: linear-gradient(to right, #e6f0fa, #ffffff);
+        } 
+    </style> 
+</head>
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="wellnest-logo-section flex items-center">
+                <img src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg?ga=GA1.1.1973211051.1744457625&semt=ais_hybrid&w=740" alt="Wellnest Logo" class="max-w-[20px]">
+                <span class="font-bold text-2xl max-text-blue ml-2">WellNest</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <nav>
+                    <ul class="flex space-x-8">
+                        <li><a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">Home</a></li>
+                        <li><a href="dr.html" class="text-gray-700 hover:text-blue-600 font-medium">Doctors</a></li>
+                        <li><a href="hospitals.html" class="text-gray-700 hover:text-blue-600 font-medium">Hospitals</a></li>
+                        <li><a href="appointment.html" class="text-gray-700 hover:text-blue-600 font-medium">Appointment</a></li>
+                        <li><a href="login.html" class="text-gray-700 hover:text-blue-600 font-medium">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero + Core Features Section -->
+    <section class="relative max-hero-bg py-16 bg-transparent overflow-hidden">
+        <!-- Blurred Background Image (only for hero) -->
+        <div 
+            class="absolute inset-0 w-full h-full z-0"
+            style="
+                /* Add your image URL below */
+                background-image: url('https://media.istockphoto.com/id/2162895612/photo/a-professional-and-focused-asian-female-doctor-in-scrubs-is-working-and-reading-medical.webp?a=1&b=1&s=612x612&w=0&k=20&c=DndbbIqm9HZrpskk911PyqwMeHmSjk1WXXR2F6VnuFw=');
+                background-size: cover;
+                background-position: center;
+                filter: blur(8px);
+                opacity: 0.4;
+            ">
+        </div>
+        <!-- Content Above Background -->
+        <div class="relative z-10">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold max-text-blue mb-6">Your Digital Health Card, Anytime, Anywhere</h1>
+                    <p class="text-gray-600 text-lg mb-8">Empower your healthcare journey with WellNest. Securely store, access, and share your medical records, prescriptions, and emergency information anytime.</p>
+                    <div class="flex space-x-4">
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section (no background image) -->
+    <section class="container mx-auto px-4 py-16 bg-transparent">
+        <h2 class="text-3xl font-bold text-center max-text-blue mb-12">Core Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="max-card flex flex-col items-center">
+            </div> 
+            <div class="max-card flex flex-col items-center"> 
+            </div> 
+            <div class="max-card flex flex-col items-center"> 
+            </div>
+            <div class="max-card flex flex-col items-center">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center max-text-blue mb-12">Real Patients, Real Stories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="max-card">
+                    <h3 class="font-semibold text-lg max-text-blue mb-2">Recovery From High CO2 Levels</h3>
+                    <p class="text-gray-600 mb-4">Treated by Dr. Vivek Kumar Verma, WellNest Super Speciality Hospital, Dehradun</p>
+                    <p class="text-sm text-gray-500">May 1, 2025</p>
+                </div>
+                <div class="max-card">
+                    <h3 class="font-semibold text-lg max-text-blue mb-2">Surgery for Ewing Sarcoma</h3>
+                    <p class="text-gray-600 mb-4">Treated by Dr. Neeraj Godara, WellNest Super Speciality Hospital, Dwarka</p>
+                    <p class="text-sm text-gray-500">Apr 30, 2025</p>
+                </div>
+                <div class="max-card">
+                    <h3 class="font-semibold text-lg max-text-blue mb-2">Successful Heart Surgery</h3>
+                    <p class="text-gray-600 mb-4">Treated by Dr. Arvind Makker, WellNest Super Speciality Hospital, Dehradun</p>
+                    <p class="text-sm text-gray-500">Apr 24, 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Stories Dynamic Section --> 
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center max-text-blue mb-12">What Our Patients Say</h2>
+            <div id="patient-stories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+            </div>
+        </div>
+    </section>
+    <footer class="max-bg-blue text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-4">© 2025 WellNest Digital Health. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                <a href="#" class="hover:text-gray-300">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       
+        const stories = [
+            { name: "John Doe", story: "Digital health made my life easier. I can now book appointments online and access my medical records anytime." },
+            { name: "Jane Smith", story: "I love how I can consult with my doctor virtually. It saves me so much travel time!" },
+            { name: "Ali Khan", story: "Managing my prescriptions is now hassle-free. The reminders help me stay on track with my medication." },
+            { name: "Maria Garcia", story: "I feel more in control of my health. The digital platform is user-friendly and secure." },
+            { name: "Emily Chen", story: "I was able to get a second opinion from a specialist in another city without leaving my home." },
+            { name: "Raj Patel", story: "The health portal helped me track my recovery progress after surgery. My doctor could monitor my updates in real-time." },
+            { name: "Fatima Noor", story: "I appreciate the privacy and convenience. Booking appointments and accessing lab results is so simple now." },
+            { name: "Carlos Rivera", story: "My family can now manage all our health records in one place. It's a game changer for us." },
+        ];
+        const storiesContainer = document.getElementById('patient-stories');
+        stories.forEach(story => {
+            const storyCard = document.createElement('div');
+            storyCard.className = 'max-card p-4';
+            storyCard.innerHTML = `
+                <h3 class="font-semibold text-lg max-text-blue mb-2">${story.name}</h3>
+                <p class="text-gray-600 mb-4">${story.story}</p>
+            `;
+            storiesContainer.appendChild(storyCard);
+        });
+    </script> 
+</body> 
+</html>

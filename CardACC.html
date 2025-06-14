@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellNest Patient Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .max-bg-blue { background-color: #003087; }
+        .max-text-blue { color: #003087; }
+        .card-shadow { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        .qr-placeholder { background: repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 10px, #e5e7eb 10px, #e5e7eb 20px); }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen font-sans">
+    <div class="bg-white rounded-lg card-shadow p-6 w-full max-w-md">
+        <div class="flex items-center mb-4">
+            <img src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg?ga=GA1.1.1973211051.1744457625&semt=ais_hybrid&w=740" alt="WellNest Logo" class="w-8 h-8 mr-2">
+            <h1 class="text-2xl font-bold max-text-blue">WellNest Patient Card</h1>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <p class="text-sm text-gray-500">Patient Name</p>
+                <p class="text-base font-semibold text-gray-800" id="patient-name">Not provided</p>
+            </div>
+            <div>
+                <p class="text-sm text-gray-500">Patient ID</p>
+                <p class="text-base font-semibold text-gray-800" id="patient-id">Not provided</p>
+            </div>
+            <div>
+                <p class="text-sm text-gray-500">Date of Birth</p>
+                <p class="text-base font-semibold text-gray-800" id="patient-dob">Not provided</p>
+            </div>
+            <div>
+                <p class="text-sm text-gray-500">Blood Group</p>
+                <p class="text-base font-semibold text-gray-800" id="patient-blood">Not provided</p>
+            </div>
+            <div>
+                <p class="text-sm text-gray-500">Gender</p>
+                <p class="text-base font-semibold text-gray-800" id="patient-gender">Not provided</p>  
+            </div>
+            <div>
+                <p class="text-sm text-gray-500">Phone</p>
+                <p class="text-base font-semibold text-gray-800" id="patient-phone">Not provided</p>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-sm text-gray-500">Address</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-address">Not provided</p>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-sm text-gray-500">Allergies</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-allergies">None</p>
+            <p class="text-sm text-gray-500 mt-2">Chronic Conditions</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-conditions">None</p>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-sm text-gray-500">Emergency Contact</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-emergency">Not provided</p>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-sm text-gray-500">Insurance Provider</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-insurance">Not provided</p>
+            <p class="text-sm text-gray-500">Policy Number</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-policy">Not provided</p>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-sm text-gray-500">Recent Visit</p>
+            <p class="text-base font-semibold text-gray-800" id="patient-visit">None</p>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-sm text-gray-500 mb-2">Health Card QR Code</p>
+            <div id="qrcode" class="w-24 h-24 rounded-md qr-placeholder"></div>
+        </div>
+
+        <div class="text-sm text-gray-500">
+            <p id="issued-on">Issued on: June 14, 2025</p>
+            <p id="issued-at">Issued at: 01:23 AM IST</p>
+        </div>
+
+        <button onclick="window.location.href='index.html'" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 mt-贿4">Back to Dashboard</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        // Generate a simple unique patient ID
+        function generatePatientId(email) {
+            return 'WN' + btoa(email).slice(0, 8).toUpperCase();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const email = localStorage.getItem('lastLoggedIn');
+            if (!email) {
+                alert('Please log in to view your patient card.');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const user = JSON.parse(localStorage.getItem('user_' + email)) || {};
+            document.getElementById('patient-name').textContent = user.name || 'Not provided';
+            document.getElementById('patient-id').textContent = generatePatientId(email);
+            document.getElementById('patient-dob').textContent = user.dob || 'Not provided';
+            document.getElementById('patient-blood').textContent = user.bloodGroup || 'Not provided';
+            document.getElementById('patient-gender').textContent = user.gender || 'Not provided';
+            document.getElementById('patient-phone').textContent = user.phone || 'Not provided';
+            document.getElementById('patient-address').textContent = user.address || 'Not provided';
+            document.getElementById('patient-allergies').textContent = 'None';
+            document.getElementById('patient-conditions').textContent = 'None';
+            document.getElementById('patient-emergency').textContent = 'Not provided';
+            document.getElementById('patient-insurance').textContent = 'Not provided';
+            document.getElementById('patient-policy').textContent = 'Not provided';
+            document.getElementById('patient-visit').textContent = 'None';
+
+            // Generate QR code linking to a mock health card URL
+            const qrCodeUrl = `https://wellnest.example.com/healthcard/${generatePatientId(email)}`;
+            new QRCode(document.getElementById('qrcode'), {
+                text: qrCodeUrl,
+                width: 96,
+                height: 96,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
+    </script>
+</body>
+</html>
